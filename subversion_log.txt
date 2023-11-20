@@ -1,0 +1,316 @@
+URL to view log online:
+https://source.eait.uq.edu.au/viewvc/csse2310-sem1-s4716841/trunk/a3/?view=log
+
+Retrieving logs at Tue May 2 17:53:45 AEST 2023
+------------------------------------------------------------------------
+r1 | uqpsutto | 2023-03-01 20:47:53 +1000 (Wed, 01 Mar 2023) | 1 line
+Changed paths:
+   A /play
+   A /prac
+   A /trunk
+   A /trunk/a1
+   A /trunk/a3
+   A /trunk/a4
+
+Initial repository structure
+
+
+------------------------------------------------------------------------
+r44 | s4716841 | 2023-04-16 00:26:45 +1000 (Sun, 16 Apr 2023) | 1 line
+Changed paths:
+   A /trunk/a3/Makefile
+   A /trunk/a3/testuqwordiply.c
+
+Added necessary libraries, created Makefile, created testuqwordiply.c, created function to test commands.
+
+Index: Makefile
+ Makefile |    4 ++++
+ 1 file changed, 4 insertions(+)
+Index: testuqwordiply.c
+ testuqwordiply.c |   33 +++++++++++++++++++++++++++++++++
+ 1 file changed, 33 insertions(+)
+
+------------------------------------------------------------------------
+r45 | s4716841 | 2023-04-19 19:09:21 +1000 (Wed, 19 Apr 2023) | 1 line
+Changed paths:
+   M /trunk/a3/testuqwordiply.c
+
+Added check_program function to check the validity of the file/program of the user,updated check_command function to be fully functional checking if any command by user is invalid.
+
+Index: testuqwordiply.c
+ testuqwordiply.c |   91 +++++++++++++++++++++++++++++++++++++++++++++++--------
+ 1 file changed, 78 insertions(+), 13 deletions(-)
+
+------------------------------------------------------------------------
+r46 | s4716841 | 2023-04-19 23:13:35 +1000 (Wed, 19 Apr 2023) | 1 line
+Changed paths:
+   M /trunk/a3/testuqwordiply.c
+
+Added check_job function to check the job file provided by user, added a macro NUM_LINES to specify the maximum lines of the jobfile.
+
+Index: testuqwordiply.c
+ testuqwordiply.c |   25 +++++++++++++++++++++++--
+ 1 file changed, 23 insertions(+), 2 deletions(-)
+
+------------------------------------------------------------------------
+r47 | s4716841 | 2023-04-20 23:14:49 +1000 (Thu, 20 Apr 2023) | 1 line
+Changed paths:
+   M /trunk/a3/Makefile
+   M /trunk/a3/testuqwordiply.c
+
+Updated Makefile to use functions from library csse2310a3.h, updated main and check_program to better check if a file exist using exec and pipe to fix the issue of unable to identify demo-uqwordiply.
+
+Index: Makefile
+ Makefile |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Index: testuqwordiply.c
+ testuqwordiply.c |   80 ++++++++++++++++++++++++++++++++++++++++++++-----------
+ 1 file changed, 64 insertions(+), 16 deletions(-)
+
+------------------------------------------------------------------------
+r48 | s4716841 | 2023-04-21 22:30:04 +1000 (Fri, 21 Apr 2023) | 1 line
+Changed paths:
+   M /trunk/a3/testuqwordiply.c
+
+Updated check_job function to check the syntax& input file of the jobfile, attempting to fix the issues with check_command on displaying the incorrect exit signal
+
+Index: testuqwordiply.c
+ testuqwordiply.c |   88 ++++++++++++++++++++++++++++++++++++-------------------
+ 1 file changed, 59 insertions(+), 29 deletions(-)
+
+------------------------------------------------------------------------
+r49 | s4716841 | 2023-04-22 11:09:30 +1000 (Sat, 22 Apr 2023) | 1 line
+Changed paths:
+   M /trunk/a3/testuqwordiply.c
+
+updated check_command function to check if the last two arguments of argv is similar to --quiet or --parallel or not
+
+Index: testuqwordiply.c
+ testuqwordiply.c |   32 +++++++++++++++++---------------
+ 1 file changed, 17 insertions(+), 15 deletions(-)
+
+------------------------------------------------------------------------
+r50 | s4716841 | 2023-04-22 16:02:41 +1000 (Sat, 22 Apr 2023) | 1 line
+Changed paths:
+   M /trunk/a3/testuqwordiply.c
+
+Continued fixing check_command to make sure that it checks the correct amount of arguments, and no arguments after jobfile, proceed on to updating check_job function.
+
+Index: testuqwordiply.c
+ testuqwordiply.c |   61 +++++++++++++++++++++++++++++++++++--------------------
+ 1 file changed, 39 insertions(+), 22 deletions(-)
+
+------------------------------------------------------------------------
+r51 | s4716841 | 2023-04-22 21:38:22 +1000 (Sat, 22 Apr 2023) | 1 line
+Changed paths:
+   M /trunk/a3/testuqwordiply.c
+
+Added comma_counter to count the num of commas in jobfile, updated check_job to check if the file is empty or full of comments till EOF
+
+Index: testuqwordiply.c
+ testuqwordiply.c |   91 +++++++++++++++++++++++++++++++++++++------------------
+ 1 file changed, 62 insertions(+), 29 deletions(-)
+
+------------------------------------------------------------------------
+r52 | s4716841 | 2023-04-23 19:50:15 +1000 (Sun, 23 Apr 2023) | 1 line
+Changed paths:
+   M /trunk/a3/testuqwordiply.c
+
+Updated check_program function to check the program in other paths, added extract_num function, started attempting to run jobs.
+
+Index: testuqwordiply.c
+ testuqwordiply.c |   83 ++++++++++++++++++++++++++++---------------------------
+ 1 file changed, 43 insertions(+), 40 deletions(-)
+
+------------------------------------------------------------------------
+r53 | s4716841 | 2023-04-24 12:21:26 +1000 (Mon, 24 Apr 2023) | 1 line
+Changed paths:
+   M /trunk/a3/testuqwordiply.c
+   A /trunk/a3/toolHistory.txt
+
+Created run_job function to start implementing the testing features, added toolHistory.txt.
+
+Index: toolHistory.txt
+ toolHistory.txt |   38 ++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 38 insertions(+)
+Index: testuqwordiply.c
+ testuqwordiply.c |   64 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 64 insertions(+)
+
+------------------------------------------------------------------------
+r54 | s4716841 | 2023-04-24 17:57:30 +1000 (Mon, 24 Apr 2023) | 1 line
+Changed paths:
+   M /trunk/a3/testuqwordiply.c
+
+Changed run job function, created 4 pipes and 4 processes, and attempted to start running the testfile in run_job function.
+
+Index: testuqwordiply.c
+ testuqwordiply.c |  194 +++++++++++++++++++++++++++----------------------------
+ 1 file changed, 97 insertions(+), 97 deletions(-)
+
+------------------------------------------------------------------------
+r55 | s4716841 | 2023-04-24 19:12:50 +1000 (Mon, 24 Apr 2023) | 1 line
+Changed paths:
+   M /trunk/a3/testuqwordiply.c
+
+Updated run_job function, does not work as intended, need further changes.
+
+Index: testuqwordiply.c
+ testuqwordiply.c |  103 +++++++++++++++++++++++++++++++++++++++++++++++++++----
+ 1 file changed, 96 insertions(+), 7 deletions(-)
+
+------------------------------------------------------------------------
+r56 | s4716841 | 2023-04-28 18:33:29 +1000 (Fri, 28 Apr 2023) | 1 line
+Changed paths:
+   M /trunk/a3/testuqwordiply.c
+
+started restructuring run_job function, updated check_program function.
+
+Index: testuqwordiply.c
+ testuqwordiply.c |  164 ++++---------------------------------------------------
+ 1 file changed, 14 insertions(+), 150 deletions(-)
+
+------------------------------------------------------------------------
+r57 | s4716841 | 2023-04-29 11:43:59 +1000 (Sat, 29 Apr 2023) | 1 line
+Changed paths:
+   M /trunk/a3/testuqwordiply.c
+
+added trim_string function to help remove the white spaces, updated check_job function
+
+Index: testuqwordiply.c
+ testuqwordiply.c |  124 +++++++++++++++++++++++++++++++++++--------------------
+ 1 file changed, 79 insertions(+), 45 deletions(-)
+
+------------------------------------------------------------------------
+r58 | s4716841 | 2023-04-29 18:11:18 +1000 (Sat, 29 Apr 2023) | 1 line
+Changed paths:
+   M /trunk/a3/testuqwordiply.c
+
+Fixed some syntax error, started reworking on creating pipes and processes.
+
+Index: testuqwordiply.c
+ testuqwordiply.c |   24 +++++++++++++++++-------
+ 1 file changed, 17 insertions(+), 7 deletions(-)
+
+------------------------------------------------------------------------
+r59 | s4716841 | 2023-04-29 21:14:31 +1000 (Sat, 29 Apr 2023) | 1 line
+Changed paths:
+   M /trunk/a3/testuqwordiply.c
+
+Added macro for process numbers, added a global var for signals, updated the child process for run job, program cannot run yet.
+
+Index: testuqwordiply.c
+ testuqwordiply.c |   30 +++++++++++++++++++++++++++---
+ 1 file changed, 27 insertions(+), 3 deletions(-)
+
+------------------------------------------------------------------------
+r60 | s4716841 | 2023-04-30 11:05:54 +1000 (Sun, 30 Apr 2023) | 1 line
+Changed paths:
+   M /trunk/a3/testuqwordiply.c
+
+created dup_string function to duplicate strings
+
+Index: testuqwordiply.c
+ testuqwordiply.c |   12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+------------------------------------------------------------------------
+r61 | s4716841 | 2023-04-30 18:22:32 +1000 (Sun, 30 Apr 2023) | 1 line
+Changed paths:
+   M /trunk/a3/testuqwordiply.c
+
+The strucuture for piping does not work yet, created read_job, dup_string, trim_string function to read the jobs from the supposed jobfile.
+
+Index: testuqwordiply.c
+ testuqwordiply.c |   97 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 97 insertions(+)
+
+------------------------------------------------------------------------
+r62 | s4716841 | 2023-05-01 11:13:13 +1000 (Mon, 01 May 2023) | 1 line
+Changed paths:
+   M /trunk/a3/testuqwordiply.c
+
+updated structure, updated run_job function, added 3 new macros, updated some syntax error.
+
+Index: testuqwordiply.c
+ testuqwordiply.c |  339 ++++++++++++++++++++++++++++++++-----------------------
+ 1 file changed, 198 insertions(+), 141 deletions(-)
+
+------------------------------------------------------------------------
+r63 | s4716841 | 2023-05-01 21:56:22 +1000 (Mon, 01 May 2023) | 1 line
+Changed paths:
+   M /trunk/a3/testuqwordiply.c
+
+Fixed typos, updated main structure, removed check_command function and combined it together with run function creating a check_and_run function, finished structuring the pipes and processes.
+
+Index: testuqwordiply.c
+ testuqwordiply.c |  296 +++++++++++++++++++++++++++++++++++++++++++------------
+ 1 file changed, 235 insertions(+), 61 deletions(-)
+
+------------------------------------------------------------------------
+r64 | s4716841 | 2023-05-02 11:34:54 +1000 (Tue, 02 May 2023) | 1 line
+Changed paths:
+   M /trunk/a3/testuqwordiply.c
+
+allows user to test files sequentially, able to produce correct output, added function run_jobs_sequentially, updated run_job, signit function works, proceeding on to testing for parallel inputs.
+
+Index: testuqwordiply.c
+ testuqwordiply.c |   93 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 93 insertions(+)
+
+------------------------------------------------------------------------
+r65 | s4716841 | 2023-05-02 16:00:25 +1000 (Tue, 02 May 2023) | 1 line
+Changed paths:
+   M /trunk/a3/testuqwordiply.c
+
+Added rub_jobs_parallel function to run the jobs in a parallel mode, updated run_jobs function, started on styling.
+
+Index: testuqwordiply.c
+ testuqwordiply.c |   99 ++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 98 insertions(+), 1 deletion(-)
+
+------------------------------------------------------------------------
+r66 | s4716841 | 2023-05-02 16:57:37 +1000 (Tue, 02 May 2023) | 1 line
+Changed paths:
+   M /trunk/a3/testuqwordiply.c
+
+Continuing with syntax clean up and style fixing
+
+Index: testuqwordiply.c
+ testuqwordiply.c |   66 ++++++++++++++++++++++++++++++-------------------------
+ 1 file changed, 37 insertions(+), 29 deletions(-)
+
+------------------------------------------------------------------------
+r67 | s4716841 | 2023-05-02 17:27:26 +1000 (Tue, 02 May 2023) | 1 line
+Changed paths:
+   M /trunk/a3/testuqwordiply.c
+
+finished with style checking.
+
+Index: testuqwordiply.c
+ testuqwordiply.c |  369 ++++++++++++++++++++++++++++---------------------------
+ 1 file changed, 192 insertions(+), 177 deletions(-)
+
+------------------------------------------------------------------------
+r68 | s4716841 | 2023-05-02 17:43:01 +1000 (Tue, 02 May 2023) | 1 line
+Changed paths:
+   M /trunk/a3/testuqwordiply.c
+
+updated comments.
+
+Index: testuqwordiply.c
+ testuqwordiply.c |   51 +++++++++++++++++++++++++++------------------------
+ 1 file changed, 27 insertions(+), 24 deletions(-)
+
+------------------------------------------------------------------------
+r69 | s4716841 | 2023-05-02 17:51:15 +1000 (Tue, 02 May 2023) | 1 line
+Changed paths:
+   M /trunk/a3/testuqwordiply.c
+
+finished updating comments
+
+Index: testuqwordiply.c
+ testuqwordiply.c |    3 +++
+ 1 file changed, 3 insertions(+)
+
+------------------------------------------------------------------------
